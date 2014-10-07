@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Dynamic Iframe</title>
+		<style>
+			body {
+				background-color: #f0f0f0;
+			}
+			.container {
+				margin: 24px auto 0;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<h1>Dynamic Iframe</h1>
+
+		<div class="container">
+			<h2>Local assets</h2>
+			<script src="js/dynamic.iframe.js" data-url="embedded.html"></script>
+			<noscript><iframe src="embedded.html" frameborder="0"></iframe></noscript>
+		</div>
+
+		<div class="container">
+			<h2>Local JS, remote embed</h2>
+			<script src="js/dynamic.iframe.js" data-url="http://idowebstuff.com/iframe/embedded.html"></script>
+			<noscript><iframe src="http://idowebstuff.com/iframe/embedded.html" frameborder="0"></iframe></noscript>
+		</div>
+
+		<div class="container">
+			<h2>Remote JS, local embed</h2>
+			<script src="http://idowebstuff.com/iframe/js/dynamic.iframe.js" data-url="embedded.html"></script>
+			<noscript><iframe src="embedded.html" frameborder="0"></iframe></noscript>
+		</div>
+
+		<div class="container">
+			<h2>Remote assets</h2>
+			<script src="http://idowebstuff.com/iframe/js/dynamic.iframe.js" data-url="http://idowebstuff.com/iframe/embedded.html"></script>
+			<noscript><iframe src="http://idowebstuff.com/iframe/embedded.html" frameborder="0"></iframe></noscript>
+		</div>
+
+	</body>
+</html>

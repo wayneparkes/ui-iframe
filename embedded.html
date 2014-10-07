@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Embedded Content</title>
+		<style>
+			body {
+				margin: 0;
+				padding: 24px;
+			}
+			h1 {
+				margin: 0;
+			}
+			div {
+				margin-top: 24px;
+			}
+			div button {
+				margin: 12px 0 0 12px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<h1>Embedded Content</h1>
+		<p>Hosted on: <script>document.write(location.protocol +'//'+ location.host);</script></p>
+
+		<script>
+			(function() {
+
+				function BlockController () {
+					
+					this.controller = document.createElement('button');
+					this.controller.innerHTML = 'Add a block';
+
+					document.body.appendChild(this.controller);
+
+					if (window.addEventListener) {
+						this.controller.addEventListener('click', function() {
+							new Block();
+						}, false);
+					} else if (window.attachEvent) {
+						this.controller.attachEvent('onclick', function() {
+							new Block();
+						});
+					}
+				}
+
+				function Block () {
+					this.view = this.create();
+				}
+
+				Block.prototype = {
+					create : function() {
+
+						this.block = document.createElement('div');
+						this.block.style.width = '96px';
+						this.block.style.height = '96px';
+						this.block.style.backgroundColor = '#'+ (Math.random().toString(16) + '000000').slice(2, 8);
+
+						this.destroyer = document.createElement('button');
+						this.destroyer.innerHTML = 'x';
+
+						this.destroyer.view = this.block;
+
+						this.block.appendChild(this.destroyer);
+						document.body.appendChild(this.block);
+
+						if (window.addEventListener) {
+							this.destroyer.addEventListener('click', this.destroy, false);
+						} else if (window.attachEvent) {
+							this.destroyer.attachEvent('onclick', this.destroy);
+						}
+
+						return this.block;
+					},
+					destroy : function() {
+						this.view.parentNode.removeChild(this.view);
+					}
+				};
+
+				new BlockController();
+			})();
+		</script>
+		<script src="js/dynamic.iframe.handler.js"></script>
+	</body>
+</html>
