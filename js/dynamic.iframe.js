@@ -113,7 +113,7 @@
 		,	styleCreated = false
 		,	createStyleSheet = function() {
 
-			var css = '.iframe-wrapper { height: 600px; clear:both; position: relative; width: 100%; -webkit-transition: all 0.125s ease-in-out; -moz-transition: all 0.125s ease-in-out; -ms-transition: all 0.125s ease-in-out; -o-transition: all 0.125s ease-in-out; transition: all 0.125s ease-in-out; }.iframe-wrapper iframe { height: 100%; left: 0; overflow: hidden; position: absolute; top: 0; width: 100%; }'
+			var css = '.iframe-wrapper { height: 100px; clear:both; position: relative; width: 100%; -webkit-transition: all 0.125s ease-in-out; -moz-transition: all 0.125s ease-in-out; -ms-transition: all 0.125s ease-in-out; -o-transition: all 0.125s ease-in-out; transition: all 0.125s ease-in-out; }.iframe-wrapper iframe { height: 100%; left: 0; overflow: hidden; position: absolute; top: 0; width: 100%; }'
 			,	head = document.head || document.getElementsByTagName('head')[0]
 			,	style = document.createElement('style');
 
